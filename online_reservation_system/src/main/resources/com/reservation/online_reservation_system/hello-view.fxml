@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.reservation.online_reservation_system.HelloController">
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.GridPane?>
+
+<GridPane hgap="10" vgap="12" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+          fx:controller="com.reservation.online_reservation_system.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets top="25" right="25" bottom="25" left="25"/>
     </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <Label text="Username" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+    <TextField fx:id="usernameField" promptText="Enter username" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+    <Label text="Password" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <PasswordField fx:id="passwordField" promptText="Enter password" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Button text="Login" onAction="#onLoginButtonClick" defaultButton="true"
+            GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.halignment="RIGHT"/>
+
+    <Label fx:id="statusLabel" wrapText="true" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+</GridPane>
