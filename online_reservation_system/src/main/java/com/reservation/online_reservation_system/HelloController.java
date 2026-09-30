@@ -6,6 +6,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class HelloController {
+    private final UserAuthenticationService authenticationService;
+
     @FXML
     private TextField usernameField;
 
@@ -15,12 +17,16 @@ public class HelloController {
     @FXML
     private Label statusLabel;
 
+    public HelloController(UserAuthenticationService authenticationService) {
+        this.authenticationService = authenticationService;
+    }
+
     @FXML
     protected void onLoginButtonClick() {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-        User user = UserAuthenticationService.authenticate(username, password);
+        User user = authenticationService.authenticate(username, password);
 
         if (user != null) {
             statusLabel.setText("Access granted. Welcome, " + user.getUsername() + "!");
